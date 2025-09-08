@@ -114,8 +114,10 @@ echo "  Output folder: $OUTPUT_FOLDER"
 echo "  Start date: $START_DATE"
 echo ""
 
+export CEHRBERT_DATA_HOME=$(python -c "import cehrbert_data; print(cehrbert_data.__file__.rsplit('/', 1)[0])")
+
 # Step 1: Generate included concept list
-CONCEPT_LIST_CMD="python -u -m cehrbert_data.apps.generate_included_concept_list \
+CONCEPT_LIST_CMD="spark-submit $SPARK_SUBMIT_OPTIONS $CEHRBERT_DATA_HOME/apps/generate_included_concept_list.py \
 -i \"$INPUT_FOLDER\" \
 -o \"$OUTPUT_FOLDER\" \
 --min_num_of_patients 100 \
@@ -131,7 +133,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # Step 2: Generate training data
-TRAINING_DATA_CMD="python -m cehrbert_data.apps.generate_training_data \
+TRAINING_DATA_CMD="spark-submit $SPARK_SUBMIT_OPTIONS $CEHRBERT_DATA_HOME/apps/generate_training_data.py \
 --input_folder \"$INPUT_FOLDER\" \
 --output_folder \"$OUTPUT_FOLDER\" \
 -d $START_DATE \
