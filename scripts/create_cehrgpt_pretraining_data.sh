@@ -140,7 +140,6 @@ TRAINING_DATA_CMD="python -m cehrbert_data.apps.generate_training_data \
 -iv \
 -ip \
 --include_concept_list \
---include_death \
 --gpt_patient_sequence \
 --should_construct_artificial_visits \
 --disconnect_problem_list_records \
