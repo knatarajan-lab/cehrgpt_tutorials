@@ -2,6 +2,8 @@
 
 This repository provides comprehensive tutorials demonstrating the capabilities of CEHR-GPT for generating high-quality synthetic healthcare data. These step-by-step guides will walk you through the complete pipeline from setup to synthetic data generation.
 
+You can find a working example in a Colab notebook at https://colab.research.google.com/drive/19Fli5zSe1a3HQ-EQA6v219GrhixdaY0p
+
 ## Prerequisites
 
 ### Environment Setup
@@ -114,6 +116,7 @@ python -u -m cehrgpt.runners.hf_cehrgpt_pretrain_runner \
     --num_train_epochs 10 \
     --learning_rate 0.0001 \
     --use_early_stopping \
+    --load_best_model_at_end true \
     --early_stopping_threshold 0.001
 ```
 
