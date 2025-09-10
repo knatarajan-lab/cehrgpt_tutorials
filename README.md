@@ -98,7 +98,7 @@ python -u -m cehrgpt.runners.hf_cehrgpt_pretrain_runner \
     --model_name_or_path $CEHR_GPT_MODEL_DIR \
     --tokenizer_name_or_path $CEHR_GPT_MODEL_DIR \
     --output_dir $CEHR_GPT_MODEL_DIR \
-    --data_folder $CEHR_GPT_DATA_DIR/patient_sequence/train \
+    --data_folder $CEHR_GPT_DATA_DIR/patient_sequence \
     --dataset_prepared_path $CEHR_GPT_DATA_DIR/dataset_prepared \
     --do_train true \
     --seed 42 \
@@ -142,7 +142,7 @@ python -u -m cehrgpt.generation.generate_batch_hf_gpt_sequence \
     --temperature 1.0 \
     --repetition_penalty 1.0 \
     --epsilon_cutoff 0.00 \
-    --demographic_data_path $CEHR_GPT_DATA_DIR/patient_sequence/train
+    --demographic_data_path $CEHR_GPT_DATA_DIR/patient_sequence
 ```
 
 This command generates 128 synthetic patients using top-p sampling with configurable parameters for controlling randomness and diversity in the generated sequences. The model considers a context window of 1024 tokens to maintain long-range dependencies in patient trajectories.
