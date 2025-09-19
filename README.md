@@ -37,7 +37,9 @@ export SYNTHETIC_DATA_OUTPUT_DIR=omop_synthea/cehrgpt/synthetic_data
 
 ### PySpark Environment Configuration
 
-CEHR-GPT leverages Apache Spark for efficient large-scale data processing. Configure your Spark environment with the following settings:
+CEHR-GPT leverages Apache Spark for efficient large-scale data processing. Before configuring Spark, ensure you have Java 8 or Java 11 installed on your system, as PySpark requires one of these Java versions to function properly. You can verify your Java installation by running `java -version` in your terminal.
+
+Configure your Spark environment with the following settings:
 
 ```shell
 # Set Spark home directory
